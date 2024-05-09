@@ -1,7 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 
-
 const Button = styled.button`
   background-color: ${(props) => {
     if (props.black) return 'rgb(16, 16, 16)';
@@ -16,14 +15,14 @@ const Button = styled.button`
   font-size: 12px;
   font-family: 'Circular', sans-serif;
   padding: 8px 20px;
-  margin: 8px;
+  margin: 8px 3px;
   border-radius: 50px; /* Rounded border-radius by default */
 
   /* Additional properties for modifying the size */
   ${(props) =>
     props.bigger &&
     css`
-      font-size: 14px; 
+      font-size: 14px;
       padding: 15px 24px;
       font-weight: 700;
     `}
@@ -32,9 +31,9 @@ const Button = styled.button`
   ${(props) =>
     props.circle &&
     css`
-    width: 30px; 
-    padding: 8px 8px;
-    border-radius: 50%; 
+      width: 30px;
+      padding: 8px 8px;
+      border-radius: 50%;
     `}
 
   cursor: pointer;
@@ -44,32 +43,4 @@ const Button = styled.button`
     transform: scale(1.05);
   }
 `;
-
-function BtnComponent() {
-  return (
-    <div>
-      <Button black bigger>Sign Up</Button>
-      <Button white bigger>Log In</Button>
-    </div>
-  );
-}
-
-function LoggedInBtn() {
-    return (
-      <div>
-         <Button white>All</Button>
-          <Button grey>Music</Button>
-          <Button grey>Podcasts</Button>
-          
-          <Button white>Explore premium</Button>
-          <Button black>Install App</Button>
-          <Button black circle>V</Button>
-          <Button black circle>V</Button>
-       
-      </div>
-    );
-  }
-  
-
-export default BtnComponent;
-export { LoggedInBtn };
+export default Button;
