@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const GradientBackground = styled.div`
+const BodyBackground = styled.div`
   /* Gradient */
   background-image: linear-gradient(to bottom, #3f3f3f, #000000); /* Grey at the top, black at the bottom */
   width: 100%;
@@ -13,4 +13,4 @@ const GradientBackground = styled.div`
   }
   `
 
-export default GradientBackground;
+export default BodyBackground;
