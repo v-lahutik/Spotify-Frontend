@@ -1,4 +1,4 @@
-import { loginUrl } from '../../services/Spotify';
+import { loginUrl } from '../../services/authSpotify';
 console.log('🚀 ~ loginUrl:', loginUrl);
 import './Login.css';
 
