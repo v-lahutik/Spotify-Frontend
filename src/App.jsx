@@ -3,30 +3,15 @@ import './App.css';
 import { Home } from './pages';
 import Login from './pages/Login/Login';
 import { useEffect, useState } from 'react';
-import { getTokenFromUrl } from './services/Spotify';
-
-// const Root = () => {
-//   return (
-//     <>
-//       <Outlet />
-//     </>
-//   );
-// };
-// const router = createBrowserRouter(
-//   createRoutesFromElements(
-//     <>
-//       <Route path="/" element={<Root />}>
-//         <Route index element={<Home />} />
-//         <Route index element={<Login />} />
-//       </Route>
-//     </>,
-//   ),
-// );
+import { getTokenFromUrl } from './services/authSpotify';
+import useFeaturedPlaylists from './services/featuredPlaylist';
 
 function App() {
   const [token, setToken] = useState();
   const tokenLocalStorage = localStorage.getItem('token');
-  console.log('🚀 ~ App ~ tokenLocalStorage:', tokenLocalStorage);
+
+  const featuredPlaylists = useFeaturedPlaylists(10);
+  console.log('🚀 ~ App ~ featuredPlaylists:', featuredPlaylists);
 
   useEffect(() => {
     const hash = getTokenFromUrl();
