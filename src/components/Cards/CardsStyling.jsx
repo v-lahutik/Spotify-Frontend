@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 const RowTitle= styled.h2`
+
     font-size: 1.5rem;
     padding: 0 20px;
     &:hover {
@@ -19,6 +20,7 @@ flex-direction: column;
 margin: 0px;
 width: 200px;
 border-radius: 8px;
+
 &:hover {
     background-color: rgb(25, 25, 25);
 }

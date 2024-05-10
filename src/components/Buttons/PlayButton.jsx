@@ -30,7 +30,7 @@ const PlayButton = styled.button`
 const GreenPlayButton = () => {
   return (
     <PlayButton>
-      <FaPlay size={15} />
+      <FaPlay size={15}  />
     </PlayButton>
   );
 };

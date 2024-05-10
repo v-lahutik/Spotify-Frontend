@@ -13,7 +13,7 @@ const Button = styled.button`
     if (props.white) return 'rgb(16, 16, 16)';
   }};
   font-size: 12px;
-  font-family: 'Circular', sans-serif;
+  font-family: "DM Sans", sans-serif;
   padding: 8px 20px;
   margin: 8px 3px;
   border-radius: 50px; /* Rounded border-radius by default */

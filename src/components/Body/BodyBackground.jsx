@@ -8,9 +8,12 @@ const BodyBackground = styled.div`
   border-radius: 10px;
   margin: 3px;
   color: rgb(246, 246, 246);
+  font-family: "DM Sans", sans-serif;
+
   p{
     color:rgb(174, 174, 174);
   }
-  `
+  }
+  `;
 
 export default BodyBackground;
