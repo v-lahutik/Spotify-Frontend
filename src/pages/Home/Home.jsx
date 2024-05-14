@@ -2,7 +2,7 @@ import { Header } from '../../components';
 import Footer from '../../components/Footer/Footer';
 import Main from '../../components/Main/Main';
 import Sidebar from '../../components/Sidebar/Sidebar';
-import BodyBackground from '../../components/Body/BodyBackground';
+import BodyBackground from '../../components/Body/BodyStyles';
 
 export const Home = () => {
   return (

@@ -1,18 +1,9 @@
-import styled from 'styled-components';
+import { SidebarContainer } from './SidebarStyles';
 import { HiOutlineHome, HiHome } from 'react-icons/hi';
 import { BiSearch, BiSearchAlt } from 'react-icons/bi';
 import { IoLibraryOutline, IoLibrary } from 'react-icons/io5';
 import { useState } from 'react';
 
-const SidebarContainer = styled.div`
-  background-color: rgb(18, 18, 18);
-  color: rgb(246, 246, 246);
-  width: 230px;
-  height: 100vh;
-  padding: 10px;
-  border-radius: 10px;
-  margin: 3px;
-`;
 
 function Sidebar() {
   const [homeIconVisible, setHomeIconVisible] = useState(true);

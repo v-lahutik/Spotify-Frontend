@@ -6,7 +6,7 @@ const BodyBackground = styled.div`
   width: 100%;
   height: 100vh;
   border-radius: 10px;
-  margin: 3px;
+  margin: 8px 3px;
   color: rgb(246, 246, 246);
   font-family: "DM Sans", sans-serif;
 

@@ -1,4 +1,4 @@
-import {RowTitle, RowContainer, CardContainer, PlayButtonWrapper, PlaylistCover, PlaylistInfo, PlaylistName, ArtistName } from './CardsStyling';
+import {RowTitle, RowContainer, CardContainer, PlayButtonWrapper, PlaylistCover, PlaylistInfo, PlaylistName, ArtistName } from './CardsStyles.jsx';
 import GreenPlayButton from '../Buttons/PlayButton';
 
 
@@ -25,6 +25,9 @@ const PlaylistCard = ({ playlistCover, playlistName, artistName }) => {
         <PlaylistName>{playlistName}</PlaylistName>
         <ArtistName>{artistName}</ArtistName>
       </PlaylistInfo>
+      <PlayButtonWrapper>
+        <GreenPlayButton />
+      </PlayButtonWrapper>
     </CardContainer>
 
     
