@@ -1,10 +1,11 @@
 import './App.css';
 //import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider, Outlet } from 'react-router-dom';
-import { Home } from './pages';
+
 import Login from './pages/Login/Login';
 import { useEffect, useState } from 'react';
 import { getTokenFromUrl } from './services/authSpotify';
 import useFeaturedPlaylists from './services/featuredPlaylist';
+import Layout from './components/Layout';
 
 function App() {
   const [token, setToken] = useState();
@@ -28,7 +29,7 @@ function App() {
 
     console.log('token', token);
   }, []);
-  return <div className="app">{tokenLocalStorage ? <Home /> : <Login />}</div>;
+  return <div className="app">{tokenLocalStorage ? <Layout /> : <Login />}</div>;
   // return <RouterProvider router={router} />;
 }
 
