@@ -4,6 +4,7 @@ const RowTitle= styled.h2`
 
     font-size: 1.5rem;
     padding: 0 20px;
+    cursor: pointer;
     &:hover {
         text-decoration: underline;
     `;
@@ -18,8 +19,9 @@ position: relative;
 display: flex;
 flex-direction: column;
 margin: 0px;
-width: 200px;
+width: 300px;
 border-radius: 8px;
+cursor: pointer;
 
 &:hover {
     background-color: rgb(25, 25, 25);
@@ -28,7 +30,7 @@ border-radius: 8px;
 const PlayButtonWrapper = styled.div`
   position: absolute;
   right: 0px;
-  bottom: 60px;
+  bottom: 10rem;
   transform: translate(-50%, -50%);
   opacity: 0; /* Initially hide the button */
   transition: opacity 0.3s ease;
@@ -37,8 +39,8 @@ const PlayButtonWrapper = styled.div`
   }
 `;
 const PlaylistCover = styled.img`
-  width: 180px;
-  height: 180px;
+  width: 10rem;
+  height: 10rem;
   margin: 10px;
   border-radius:8px;
   object-fit: cover; 
