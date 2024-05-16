@@ -1,10 +1,11 @@
-import { SidebarContainer } from './SidebarStyles';
+import { SidebarContainer, SidebarWrapper } from './SidebarStyles';
 import { HiOutlineHome, HiHome } from 'react-icons/hi';
 import { BiSearch, BiSearchAlt } from 'react-icons/bi';
 import { IoLibraryOutline, IoLibrary } from 'react-icons/io5';
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { routes } from '../../shared/routes';
+import useCategoriesPlaylists from '../../services/categories';
 
 function Sidebar() {
   const menu = [
@@ -17,8 +18,7 @@ function Sidebar() {
     icon: IoLibraryOutline,
     text: 'Your Library',
   };
-
-  const [active, setActive] = useState();
+  const pathname = useLocation().pathname;
   // const location = useLocation();
   // const [homeIconVisible, setHomeIconVisible] = useState(true);
   // const [searchIconVisible, setSearchIconVisible] = useState(true);
@@ -34,19 +34,34 @@ function Sidebar() {
   // const toggleLibraryIcon = () => {
   //   setLibraryIconVisible(!libraryIconVisible);
   // };
+  const categories = useCategoriesPlaylists();
+  console.log('🚀 ~ useEffect ~ categories:', categories);
+  //useEffect(() => {
+
+  // }
+  // , []);
+
   return (
-    <SidebarContainer>
-      <ul>
-        {menu.map((menu, index) => (
-          <li key={index} className={active ? 'active' : null}>
-            <Link to={menu.href}>
-              {active ? <menu.iconActive /> : <menu.icon />}
-              {menu.text}
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </SidebarContainer>
+    <SidebarWrapper>
+      <SidebarContainer>
+        <ul>
+          {menu.map((menu, index) => (
+            <li key={index} className={pathname === menu.href ? 'active' : null}>
+              <Link to={menu.href}>
+                {pathname === menu.href ? <menu.iconActive /> : <menu.icon />}
+                {menu.text}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </SidebarContainer>
+      <SidebarContainer>
+        <Link className="library">
+          <library.icon />
+          {library.text}
+        </Link>
+      </SidebarContainer>
+    </SidebarWrapper>
   );
 }
 export default Sidebar;
