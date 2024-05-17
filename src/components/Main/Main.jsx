@@ -1,8 +1,8 @@
 import PlaylistCard from "../Cards/Cards";
-import GreenPlayButton from "../Buttons/PlayButton";
 import { useEffect, useState } from 'react';
 import useFeaturedPlaylists from '../../services/featuredPlaylist';
 import { RowContainer, RowTitle } from "../Cards/CardsStyles";
+import { Link, Outlet } from "react-router-dom";
 
 function Main() {
   const featuredPlaylists = useFeaturedPlaylists(7);
@@ -16,6 +16,7 @@ function Main() {
 
   return (
     <>
+    <Link to="/FullPlaylist">Full Playlist</Link>
       <RowTitle>Today's biggest hits</RowTitle>
       <RowContainer>
       {playlists?.items?.map((playlist, index) => (
@@ -27,6 +28,7 @@ function Main() {
           />
         ))}
       </RowContainer>
+      
     </>
   );
 }

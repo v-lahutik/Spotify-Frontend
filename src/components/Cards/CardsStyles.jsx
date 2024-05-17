@@ -1,36 +1,45 @@
 import styled from 'styled-components';
 
-const RowTitle= styled.h2`
-
-    font-size: 1.5rem;
-    padding: 0 20px;
-    cursor: pointer;
-    &:hover {
-        text-decoration: underline;
-    `;
+const RowTitle = styled.h2`
+  font-size: 1.5rem;
+  padding: 0 20px;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
+`;
 
 const RowContainer = styled.div`
   display: flex;
-  padding: 0 10px;
+  padding: 0 2rem;
 `;
+const FullPlaylistContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 2rem;
+  `;
 
 const CardContainer = styled.div`
-position: relative;
-display: flex;
-flex-direction: column;
-margin: 0px;
-width: 300px;
-border-radius: 8px;
-cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  
+  flex-direction: column;
+  border-radius: 8px;
+  cursor: pointer;
+  flex: 1;
+  min-width: 120px;
+  padding: 8px;
 
-&:hover {
+  &:hover {
     background-color: rgb(25, 25, 25);
-}
+  }
 `;
+
 const PlayButtonWrapper = styled.div`
   position: absolute;
-  right: 0px;
-  bottom: 10rem;
+  right: 8px;
+  bottom: 80px;
   transform: translate(-50%, -50%);
   opacity: 0; /* Initially hide the button */
   transition: opacity 0.3s ease;
@@ -38,12 +47,14 @@ const PlayButtonWrapper = styled.div`
     opacity: 1; /* Show button on hover */
   }
 `;
+
 const PlaylistCover = styled.img`
-  width: 10rem;
-  height: 10rem;
-  margin: 10px;
-  border-radius:8px;
-  object-fit: cover; 
+  width: 100%;
+  height: auto;
+ 
+  border-radius: 8px;
+  object-fit: cover;
+  
 `;
 
 const PlaylistInfo = styled.div`
@@ -51,14 +62,27 @@ const PlaylistInfo = styled.div`
 `;
 
 const PlaylistName = styled.h2`
-  font-size: 16px;
+  font-size: 0.8rem;
   font-weight: 500;
   margin: 0;
 `;
 
 const ArtistName = styled.p`
-  font-size: 14px;
+  font-size: 0.7rem;
   margin: 5px 0 0;
 `;
+function shortenText(text, charLimit) {
+  if (text.length <= charLimit) {
+    return text;
+  }
+  let shortened = text.slice(0, charLimit);
+  // Ensure we don't break words
+  const lastSpaceIndex = shortened.lastIndexOf(' ');
+  if (lastSpaceIndex > -1) {
+    shortened = shortened.slice(0, lastSpaceIndex);
+  }
 
-export { RowTitle, RowContainer, CardContainer, PlayButtonWrapper, PlaylistCover, PlaylistInfo, PlaylistName, ArtistName };
+  return shortened + '...';
+}
+
+export { RowTitle, RowContainer, FullPlaylistContainer, CardContainer, PlayButtonWrapper, PlaylistCover, PlaylistInfo, PlaylistName, ArtistName, shortenText };
