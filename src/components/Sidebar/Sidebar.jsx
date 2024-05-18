@@ -2,10 +2,10 @@ import { SidebarContainer, SidebarWrapper } from './SidebarStyles';
 import { HiOutlineHome, HiHome } from 'react-icons/hi';
 import { BiSearch, BiSearchAlt } from 'react-icons/bi';
 import { IoLibraryOutline, IoLibrary } from 'react-icons/io5';
-import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { routes } from '../../shared/routes';
-import useCategoriesPlaylists from '../../services/categories';
+import useUser from '../../services/user';
+import useUserPlaylists from '../../services/topPlaylists';
+import VerticalCard from '../Cards/VerticalCard';
 
 function Sidebar() {
   const menu = [
@@ -19,27 +19,12 @@ function Sidebar() {
     text: 'Your Library',
   };
   const pathname = useLocation().pathname;
-  // const location = useLocation();
-  // const [homeIconVisible, setHomeIconVisible] = useState(true);
-  // const [searchIconVisible, setSearchIconVisible] = useState(true);
-  // const [libraryIconVisible, setLibraryIconVisible] = useState(true);
 
-  // const toggleHomeIcon = () => {
-  //   setHomeIconVisible(!homeIconVisible);
-  // };
+  const user = useUser();
+  console.log('🚀 ~ Sidebar ~ user:', user);
 
-  // const toggleSearchIcon = () => {
-  //   setSearchIconVisible(!searchIconVisible);
-  // };
-  // const toggleLibraryIcon = () => {
-  //   setLibraryIconVisible(!libraryIconVisible);
-  // };
-  const categories = useCategoriesPlaylists();
-  console.log('🚀 ~ useEffect ~ categories:', categories);
-  //useEffect(() => {
-
-  // }
-  // , []);
+  const topPlaylists = useUserPlaylists();
+  console.log('🚀 ~ Sidebar ~ topItems:', topPlaylists);
 
   return (
     <SidebarWrapper>
@@ -60,6 +45,17 @@ function Sidebar() {
           <library.icon />
           {library.text}
         </Link>
+        <div className="playlist-wrapper">
+          {topPlaylists?.items?.map((playlist) => (
+            <VerticalCard
+              key={playlist.id}
+              playlistCover={playlist.images[0].url}
+              playlistName={playlist.name}
+              playlistType={playlist.type}
+              playlistOwner={playlist.owner.display_name}
+            />
+          ))}
+        </div>
       </SidebarContainer>
     </SidebarWrapper>
   );
