@@ -6,20 +6,33 @@ const SidebarWrapper = styled.div`
   padding: 1px 5px;
   background-color: #121212;
   color: #ffffff;
-  height: 100vh;
-  width: 277px;
+
+  width: 320px;
   top: 0;
   left: 0;
+  .playlist-wrapper {
+    position: relative;
+
+    height: calc(100vh - 220px) !important;
+    overscroll-behavior-y: contain;
+    overflow: hidden !important;
+
+    overflow-y: scroll !important;
+    scrollbar-width: auto;
+    overflow: auto;
+    scrollbar-color: hsla(0, 0%, 100%, 0.3) transparent;
+  }
 `;
 
 const SidebarContainer = styled.div`
-  background-color: rgb(38 38 38);
+  background-color:#121212;
   color: rgb(246, 246, 246);
-  width: 250px;
-  height: 100px;
+  width: 290px;
+  padding: 0;
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 8px;
   margin: 8px 3px 8px 8px;
+
   ul {
     list-style-type: none;
     padding: 0;
@@ -63,6 +76,7 @@ const SidebarContainer = styled.div`
     &:hover {
       color: #ffffff;
     }
+   
 `;
 
 export { SidebarContainer, SidebarWrapper };
