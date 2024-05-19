@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+
 const RowTitle = styled.h2`
 
     font-size: 1.5rem;
@@ -34,6 +35,23 @@ const PlaylistCover = styled.img`
   object-fit: cover;
 `;
 
+const MusicIconContainer = styled.div`
+  color: #AFAFAF;
+  background-color: #282828;
+  margin: 10px 2px 10px 10px;
+  border-radius: 8px;
+  height: 48px;
+  width: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+    
+  svg {
+    width: 60%;  
+    height: 60%; 
+  }
+  `;
+
 const PlaylistInfo = styled.div`
   padding: 10px;
 `;
@@ -62,4 +80,4 @@ const PlaylistType = styled.p`
   overflow: hidden;
 `;
 
-export { RowTitle, RowContainer, CardContainer, PlaylistCover, PlaylistInfo, PlaylistName, PlaylistType };
+export { RowTitle, RowContainer, CardContainer, PlaylistCover, MusicIconContainer, PlaylistInfo, PlaylistName, PlaylistType };

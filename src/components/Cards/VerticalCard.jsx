@@ -1,12 +1,18 @@
 /* eslint-disable react/prop-types */
-
-import { CardContainer, PlaylistCover, PlaylistInfo, PlaylistName, PlaylistType } from './VerticalCardStyle.jsx';
+import { HiOutlineMusicalNote } from "react-icons/hi2";
+import { CardContainer, PlaylistCover, MusicIconContainer, PlaylistInfo, PlaylistName, PlaylistType } from './VerticalCardStyle.jsx';
 
 function VerticalCard({ playlistCover, playlistName, playlistType, playlistOwner }) {
   return (
     <>
       <CardContainer>
-        <PlaylistCover src={playlistCover} alt="Playlist Cover" />
+      {playlistCover ? (
+          <PlaylistCover src={playlistCover} alt="Playlist Cover" />
+        ) : (
+          <MusicIconContainer>
+            <HiOutlineMusicalNote />
+          </MusicIconContainer>
+        )}
         <PlaylistInfo>
           <PlaylistName>{playlistName}</PlaylistName>
           <PlaylistType>

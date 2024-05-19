@@ -1,13 +1,22 @@
 import { SidebarContainer, SidebarWrapper } from './SidebarStyles';
-import { HiOutlineHome, HiHome } from 'react-icons/hi';
+import { HiOutlineHome, HiHome} from 'react-icons/hi';
 import { BiSearch, BiSearchAlt } from 'react-icons/bi';
 import { IoLibraryOutline, IoLibrary } from 'react-icons/io5';
 import { Link, useLocation } from 'react-router-dom';
 import useUser from '../../services/user';
 import useUserPlaylists from '../../services/topPlaylists';
 import VerticalCard from '../Cards/VerticalCard';
+import { useState, useEffect } from 'react';
+
 
 function Sidebar() {
+  const playlists = useUserPlaylists(5);
+  const [topPlaylists, setTopPlaylists] = useState(null);
+  
+  useEffect(() => {
+    setTopPlaylists(playlists);
+  }, [playlists]);
+
   const menu = [
     { iconActive: HiHome, icon: HiOutlineHome, href: '/', text: 'Home' },
     { iconActive: BiSearchAlt, icon: BiSearch, href: '/search', text: 'Search' },
@@ -22,8 +31,6 @@ function Sidebar() {
 
   const user = useUser();
   console.log('🚀 ~ Sidebar ~ user:', user);
-
-  const topPlaylists = useUserPlaylists();
   console.log('🚀 ~ Sidebar ~ topItems:', topPlaylists);
 
   return (
@@ -49,7 +56,7 @@ function Sidebar() {
           {topPlaylists?.items?.map((playlist) => (
             <VerticalCard
               key={playlist.id}
-              playlistCover={playlist.images[0].url}
+              playlistCover={playlist.images?.[0]?.url || null} 
               playlistName={playlist.name}
               playlistType={playlist.type}
               playlistOwner={playlist.owner.display_name}
