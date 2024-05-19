@@ -4,7 +4,7 @@ const SidebarWrapper = styled.div`
   display: flex;
   flex-direction: column;
   padding: 1px 5px;
-  background-color: #121212;
+  background-color: black;
   color: #ffffff;
 
   width: 320px;
