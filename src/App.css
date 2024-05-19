@@ -1,14 +1,13 @@
-
 #root {
   margin: 0 auto;
   padding: 0;
   margin: 0;
-  font-family: "DM Sans", sans-serif;
+  font-family: 'DM Sans', sans-serif;
 }
 .spotify-body {
   display: flex;
   background-color: black;
-  
 }
-
-
+html {
+  scrollbar-color: hsla(0, 0%, 100%, 0.3) transparent;
+}
