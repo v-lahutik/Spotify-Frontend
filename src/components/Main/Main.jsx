@@ -1,8 +1,8 @@
 import PlaylistCard from "../Cards/Cards";
 import { useEffect, useState } from 'react';
 import useFeaturedPlaylists from '../../services/featuredPlaylist';
-import { RowContainer, RowTitle } from "../Cards/CardsStyles";
-import { Link, Outlet } from "react-router-dom";
+import { RowContainer, RowTitle, LinkContainer } from "../Cards/CardsStyles";
+import { Link} from "react-router-dom";
 
 function Main() {
   const featuredPlaylists = useFeaturedPlaylists(7);
@@ -12,12 +12,14 @@ function Main() {
     setPlaylists(featuredPlaylists);
   }, [featuredPlaylists]);
 
-  console.log(playlists); 
+  console.log(playlists?.items); 
 
   return (
     <>
-    <Link to="/FullPlaylist">Full Playlist</Link>
-      <RowTitle>Today's biggest hits</RowTitle>
+      <LinkContainer>
+        <Link to="/FullPlaylist"><RowTitle>Today's biggest hits</RowTitle></Link>
+        <Link className="showAll" to="/FullPlaylist">Show All</Link>
+      </LinkContainer>
       <RowContainer>
       {playlists?.items?.map((playlist, index) => (
           <PlaylistCard

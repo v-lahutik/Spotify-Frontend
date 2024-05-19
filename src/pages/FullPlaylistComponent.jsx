@@ -1,10 +1,11 @@
 import PlaylistCard from "../components/Cards/Cards";
 import { useEffect, useState } from 'react';
 import useFeaturedPlaylists from '../services/featuredPlaylist';
-import { FullPlaylistContainer, RowTitle } from "../components/Cards/CardsStyles";
+import { FullPlaylistContainer, LinkContainer, RowTitle } from "../components/Cards/CardsStyles";
+import { Link } from "react-router-dom";
 
 function FullPlaylistComponent() {
-    const featuredPlaylists = useFeaturedPlaylists(50);
+    const featuredPlaylists = useFeaturedPlaylists(21);
     const [playlists, setPlaylists] = useState(null);
   
     useEffect(() => {
@@ -15,7 +16,10 @@ function FullPlaylistComponent() {
   
     return (
       <>
-        <RowTitle>Today's biggest hits</RowTitle>
+      <LinkContainer>
+      <RowTitle>Today's biggest hits</RowTitle>
+      </LinkContainer>
+        
         <FullPlaylistContainer>
         {playlists?.items?.map((playlist, index) => (
             <PlaylistCard

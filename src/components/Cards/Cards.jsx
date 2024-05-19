@@ -9,7 +9,7 @@ const PlaylistCard = ({ playlistCover, playlistName, artistName, }) => {
     <CardContainer>
       <PlaylistCover src={playlistCover} alt="Playlist Cover" />
       <PlaylistInfo>
-        <PlaylistName>{playlistName}</PlaylistName>
+        <PlaylistName>{shortenText(playlistName, 16)}</PlaylistName>
         <ArtistName>{shortenText(artistName, 32)}</ArtistName>
       </PlaylistInfo>
       <PlayButtonWrapper>
