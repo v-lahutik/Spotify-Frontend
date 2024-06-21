@@ -1,10 +1,13 @@
 import PlaylistCard from "../Cards/Cards";
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import useFeaturedPlaylists from '../../services/featuredPlaylist';
 import { RowContainer, RowTitle, LinkContainer } from "../Cards/CardsStyles";
 import { Link} from "react-router-dom";
+import { PlaylistsContext, playlistsReducer, PlaylistsProvider } from "../../reducers/playlistReducer";
 
 function Main() {
+  const {state}=useContext(PlaylistsContext)
+  
   const featuredPlaylists = useFeaturedPlaylists(7);
   const [playlists, setPlaylists] = useState(null);
 
@@ -13,9 +16,17 @@ function Main() {
   }, [featuredPlaylists]);
 
   console.log(playlists?.items); 
+  
 
+  useEffect(() => {
+    console.log("Featured Playlists:", playlists?.items);
+    console.log("Context State:", state?.categories);
+    console.log("state", state)
+  }, [playlists, state]);
   return (
     <>
+    <PlaylistsProvider>
+      
       <LinkContainer>
         <Link to="/FullPlaylist"><RowTitle>Today's biggest hits</RowTitle></Link>
         <Link className="showAll" to="/FullPlaylist">Show All</Link>
@@ -30,7 +41,7 @@ function Main() {
           />
         ))}
       </RowContainer>
-      
+      </PlaylistsProvider>
     </>
   );
 }

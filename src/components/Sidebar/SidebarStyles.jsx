@@ -20,7 +20,7 @@ const SidebarWrapper = styled.div`
     overflow-y: scroll !important;
     scrollbar-width: auto;
     overflow: auto;
-    scrollbar-color: hsla(0, 0%, 100%, 0.3) transparent;
+    scrollbar-color: hsla(0, 0%, 100%, 0.3) transparent !important;
   }
 `;
 
