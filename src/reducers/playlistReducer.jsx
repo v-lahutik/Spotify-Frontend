@@ -9,7 +9,7 @@ export const playlistsReducer = (state, action) => {
   switch (type) {
     case 'CATEGORY_PLAYLISTS': {
       console.log("payload", payload);
-      return { ...state, categories: payload }; // Ensure categories are correctly set in the state
+      return { ...state, categories: payload }; 
     }
     default:
       return state;
@@ -34,7 +34,6 @@ console.log("STATE FROM REDUCER", state)
         console.error('Error fetching categories:', error);
       }
     };
-
     getCategories();
   }, []);
 

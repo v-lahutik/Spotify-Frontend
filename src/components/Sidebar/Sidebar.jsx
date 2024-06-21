@@ -30,8 +30,8 @@ function Sidebar() {
   const pathname = useLocation().pathname;
 
   const user = useUser();
-  console.log('🚀 ~ Sidebar ~ user:', user);
-  console.log('🚀 ~ Sidebar ~ topItems:', topPlaylists);
+  //console.log('🚀 ~ Sidebar ~ user:', user);
+  //console.log('🚀 ~ Sidebar ~ topItems:', topPlaylists);
 
   return (
     <SidebarWrapper>
