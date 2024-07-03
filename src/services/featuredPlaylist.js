@@ -15,20 +15,22 @@ export default function useFeaturedPlaylists(limit = 5) {
 }
 
 //example for using api from categories api
-function useNewPlaylists() {
+function useNewPlaylists(categoryId) {
   const [newPlaylists, setNewPlaylists] = useState(null);
 
   useEffect(() => {
-    fetchData(`https://api.spotify.com/v1/browse/categories/0JQ5DAt0tbjZptfcdMSKl3`)
+    if (!categoryId) return;
+    fetchData(`https://api.spotify.com/v1/browse/categories/${categoryId}/playlists`)
       .then((data) => {
         console.log("🚀 🚀 🚀 new playlist", data);
-        setNewPlaylists(data); // Update state with fetched playlists
+        setNewPlaylists(data);
       })
       .catch((error) => {
-        console.error("Error fetching new playlists:", error); // Log any errors
+        console.error("Error fetching new playlists:", error); 
       });
-  }, []);
+  }, [categoryId]);
 
   return newPlaylists;
 }
-export {useNewPlaylists};
+
+export { useNewPlaylists };
