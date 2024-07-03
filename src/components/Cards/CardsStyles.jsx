@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 const LinkContainer = styled.div`
+
   display: flex;
   justify-content: space-between;
   padding: 0 45px 0 0;
@@ -19,11 +20,13 @@ const LinkContainer = styled.div`
   }
   `
 const RowTitle = styled.h2`
+  
   font-size: 1.5rem;
   padding: 0 40px;
   margin: 0;
 `;
 const RowContainer = styled.div`
+
   display: flex;
   padding: 0 2rem;
   
