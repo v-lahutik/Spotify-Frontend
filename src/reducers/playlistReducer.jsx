@@ -7,10 +7,8 @@ export const playlistsReducer = (state, action) => {
   const { type, payload } = action;
 
   switch (type) {
-    case 'CATEGORY_PLAYLISTS': {
-      console.log("payload", payload);
-      return { ...state, categories: payload }; 
-    }
+    case 'CATEGORY_PLAYLISTS':
+      return { ...state, categories: payload.categories, playlists: payload.playlists };
     default:
       return state;
   }
@@ -18,24 +16,33 @@ export const playlistsReducer = (state, action) => {
 
 export const PlaylistsProvider = ({ children }) => {
   
-  const [state, dispatch] = useReducer(playlistsReducer, { categories: [] }); // Define initial state with categories
+  const [state, dispatch] = useReducer(playlistsReducer, { categories: [], playlists: {} }); 
 console.log("STATE FROM REDUCER", state)
-  useEffect(() => {
-    const getCategories = async () => {
-      try {
-        const data = await fetchData(`https://api.spotify.com/v1/browse/categories`);
-        if (data && data.categories) {
-          dispatch({ type: 'CATEGORY_PLAYLISTS', payload: data.categories.items });
-          console.log('🚀 ~ fetchData ~ category:', data.categories);
-        } else {
-          console.error('No categories found:', data);
-        }
-      } catch (error) {
-        console.error('Error fetching categories:', error);
+useEffect(() => {
+  const getData = async () => {
+    try {
+      // Fetch all categories
+      const categoryData = await fetchData('https://api.spotify.com/v1/browse/categories');
+      const categories = categoryData.categories.items;
+      
+      const playlists = {};
+      console.log('🚀 ~ fetchData ~ categories:', categories);
+
+      // Fetch playlists for each category using the category ID
+      for (const category of categories) {
+        const playlistData = await fetchData(`https://api.spotify.com/v1/browse/categories/${category.id}/playlists`);
+        playlists[category.id] = playlistData.playlists.items;
       }
-    };
-    getCategories();
-  }, []);
+      console.log('🚀 ~ fetchData ~ playlists:', playlists);
+      // Dispatch both categories and playlists to the reducer
+      dispatch({ type: 'CATEGORY_PLAYLISTS', payload: { categories, playlists } });
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+
+  getData();
+}, []);
 
   return (
     <PlaylistsContext.Provider value={{ state, dispatch }}>
