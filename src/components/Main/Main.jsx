@@ -9,13 +9,14 @@ import { PlaylistsContext } from '../../reducers/playlistReducer';
 function Main() {
   const { state } = useContext(PlaylistsContext);
 
+// For example purposes
   const featuredPlaylists = useFeaturedPlaylists(7);
   const [playlists, setPlaylists] = useState(null);
 
-  // For example purposes
   useEffect(() => {
     setPlaylists(featuredPlaylists);
   }, [featuredPlaylists]);
+
 
   return (
     <>
@@ -26,12 +27,11 @@ function Main() {
               <Link to="/FullPlaylist">
                 <RowTitle>{category.name}</RowTitle>
               </Link>
-              <Link className="showAll" to="/FullPlaylist">
-                Show All
-              </Link>
+              <Link className="showAll" to="/FullPlaylist">Show All</Link>
             </LinkContainer>
 
             <RowContainer>
+              {console.log("MAIN", state)}
               {state?.playlists[category.id]?.map((playlist, index) => (
                 <PlaylistCard
                   key={index}

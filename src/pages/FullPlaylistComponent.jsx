@@ -35,3 +35,30 @@ function FullPlaylistComponent() {
   }
 
 export default FullPlaylistComponent
+
+
+// function FullPlaylistComponent() {
+//   const { state } = useContext(PlaylistsContext);
+
+//   return (
+//     <>
+//       <LinkContainer>
+//         <RowTitle>Today's biggest hits</RowTitle>
+//       </LinkContainer>
+
+//       <FullPlaylistContainer>
+//         {console.log("FULL PLAYLIST", state)}
+//         {state?.playlists[category.id]?.map((playlist, index) => (
+//           <PlaylistCard
+//             key={index}
+//             playlistCover={playlist.images[0].url}
+//             playlistName={playlist.name}
+//             artistName={playlist.description}
+//           />
+//         ))}
+//       </FullPlaylistContainer>
+//     </>
+//   );
+// }
+
+// export default FullPlaylistComponent;
