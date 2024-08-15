@@ -9,25 +9,16 @@ import { PlaylistsContext } from '../../reducers/playlistReducer';
 function Main() {
   const { state } = useContext(PlaylistsContext);
 
-// For example purposes
-  const featuredPlaylists = useFeaturedPlaylists(7);
-  const [playlists, setPlaylists] = useState(null);
-
-  useEffect(() => {
-    setPlaylists(featuredPlaylists);
-  }, [featuredPlaylists]);
-
-
   return (
     <>
       <MainComponentWrapper>
         {state?.categories?.map((category) => (
           <PlaylistWrapper key={category.id}>
             <LinkContainer>
-              <Link to="/FullPlaylist">
+            <Link to={`/playlist/${category.id}`}>
                 <RowTitle>{category.name}</RowTitle>
               </Link>
-              <Link className="showAll" to="/FullPlaylist">Show All</Link>
+              <Link className="showAll" to={`/playlist/${category.id}`}>Show All</Link>
             </LinkContainer>
 
             <RowContainer>
@@ -44,27 +35,6 @@ function Main() {
           </PlaylistWrapper>
         ))}
 
-        {/* keep component below as STATIC example*/}
-        <PlaylistWrapper>
-          <LinkContainer>
-            <Link to="/FullPlaylist">
-              <RowTitle>Today's biggest hits (EXAMPLE)</RowTitle>
-            </Link>
-            <Link className="showAll" to="/FullPlaylist">
-              Show All
-            </Link>
-          </LinkContainer>
-          <RowContainer>
-            {playlists?.items?.map((playlist, index) => (
-              <PlaylistCard
-                key={index}
-                playlistCover={playlist.images[0].url}
-                playlistName={playlist.name}
-                artistName={playlist.description}
-              />
-            ))}
-          </RowContainer>
-        </PlaylistWrapper>
       </MainComponentWrapper>
     </>
   );

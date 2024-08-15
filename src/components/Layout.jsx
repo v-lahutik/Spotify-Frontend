@@ -23,7 +23,7 @@ const Layout = () => {
             <div className="body-contents">
               <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/FullPlaylist" element={<FullPlaylistComponent />} />
+                <Route path="/playlist/:categoryId" element={<FullPlaylistComponent />} />
                 <Route path="/search" element={<Search />} />
               </Routes>
             </div>

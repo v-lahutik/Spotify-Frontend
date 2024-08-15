@@ -21,7 +21,7 @@ console.log("STATE FROM REDUCER", state)
 useEffect(() => {
   const getData = async () => {
     try {
-      // Fetch all categories
+      // Fetch all category names
       const categoryData = await fetchData('https://api.spotify.com/v1/browse/categories');
       const categories = categoryData.categories.items;
       
