@@ -83,6 +83,7 @@ const PlaylistCover = styled.img`
 
 const PlaylistInfo = styled.div`
   padding: 10px;
+  
 `;
 
 const PlaylistName = styled.h2`

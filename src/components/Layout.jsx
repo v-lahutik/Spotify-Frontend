@@ -9,6 +9,7 @@ import Footer from './Footer/Footer';
 import Home from '../pages/Home/Home';
 import FullPlaylistComponent from '../pages/FullPlaylistComponent';
 import { PlaylistsProvider } from '../reducers/playlistReducer';
+import SingePlaylistComponent from '../pages/SinglePlaylistComponent/SingePlaylistComponent';
 
 const Layout = () => {
   return (
@@ -23,7 +24,8 @@ const Layout = () => {
             <div className="body-contents">
               <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/playlist/:categoryId" element={<FullPlaylistComponent />} />
+                <Route path="/playlist/:playlistId" element={<SingePlaylistComponent />} />
+                <Route path="/category/:categoryId" element={<FullPlaylistComponent />} />
                 <Route path="/search" element={<Search />} />
               </Routes>
             </div>

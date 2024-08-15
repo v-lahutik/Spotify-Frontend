@@ -45,7 +45,6 @@ const FullPlaylistComponent = () => {
     <>
       <LinkContainer>
         <RowTitle>{categoryName}</RowTitle>
-        { console.log('Category Name:', categoryName) }
       </LinkContainer>
 
       <FullPlaylistContainer>
