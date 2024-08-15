@@ -21,7 +21,7 @@ console.log("STATE FROM REDUCER", state)
 useEffect(() => {
   const getData = async () => {
     try {
-      // Fetch all categories
+      // Fetch all category names
       const categoryData = await fetchData('https://api.spotify.com/v1/browse/categories');
       const categories = categoryData.categories.items;
       
@@ -30,7 +30,7 @@ useEffect(() => {
 
       // Fetch playlists for each category using the category ID
       for (const category of categories) {
-        const playlistData = await fetchData(`https://api.spotify.com/v1/browse/categories/${category.id}/playlists`);
+        const playlistData = await fetchData(`https://api.spotify.com/v1/browse/categories/${category.id}/playlists?offset=0&limit=7`);
         playlists[category.id] = playlistData.playlists.items;
       }
       console.log('🚀 ~ fetchData ~ playlists:', playlists);

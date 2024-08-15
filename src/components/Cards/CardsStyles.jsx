@@ -30,27 +30,30 @@ const RowContainer = styled.div`
   display: flex;
   padding: 0 2rem;
   
+
 `;
 const FullPlaylistContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   padding: 0 2rem;
-  
+ 
   `;
 
-const CardContainer = styled.div`
+  const CardContainer = styled.div`
   position: relative;
   display: flex;
-  align-items: center;
-  
   flex-direction: column;
-  border-radius: 8px;
-  cursor: pointer;
   flex: 1;
-  min-width: 120px;
+
+  border-radius: 8px;
   padding: 8px;
+  cursor: pointer;
 
-
+  max-width: 300px;
+  min-width: 200px;
+  max-width: 200px;
+  
+  box-sizing: border-box;
   &:hover {
     background-color: rgb(25, 25, 25);
   }
@@ -71,7 +74,8 @@ const PlayButtonWrapper = styled.div`
 const PlaylistCover = styled.img`
   width: 100%;
   height: auto;
- 
+  max-height: 200px;
+  max-width: 200px;
   border-radius: 8px;
   object-fit: cover;
   
@@ -79,6 +83,7 @@ const PlaylistCover = styled.img`
 
 const PlaylistInfo = styled.div`
   padding: 10px;
+  
 `;
 
 const PlaylistName = styled.h2`
