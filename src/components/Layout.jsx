@@ -31,10 +31,11 @@ const Layout = () => {
             </div>
             </PlaylistsProvider>
           </div>
+          <Footer />
         </BodyBackground>
       </div>
       <div className="spotify-footer">
-        <Footer />
+        
       </div>
     </>
   );
