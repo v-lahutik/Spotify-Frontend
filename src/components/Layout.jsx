@@ -10,16 +10,17 @@ import FullPlaylistComponent from '../pages/FullPlaylistComponent';
 import { PlaylistsProvider } from '../reducers/playlistReducer';
 import SingePlaylistComponent from '../pages/SinglePlaylistComponent/SingePlaylistComponent';
 import Search from '../pages/Search/Search';
+import PlayerControls from './Player/Player';
 
 const Layout = () => {
   return (
-    <>
+    <><PlaylistsProvider>
       <div className="spotify-body">
         <Sidebar />
         <BodyBackground>
           <div className="body">
             <Header />
-            <PlaylistsProvider>
+            
               <div className="body-contents">
                 <Routes>
                   <Route path="/" element={<Home />} />
@@ -28,12 +29,13 @@ const Layout = () => {
                   <Route path="/search" element={<Search />} />
                 </Routes>
               </div>
-            </PlaylistsProvider>
+            
           </div>
-          <Footer />
+          <Footer /> 
         </BodyBackground>
+       
       </div>
-      <div className="spotify-footer"></div>
+      <PlayerControls /></PlaylistsProvider>
     </>
   );
 };

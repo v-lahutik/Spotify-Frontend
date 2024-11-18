@@ -9,6 +9,7 @@ export const playlistsReducer = (state, action) => {
   switch (type) {
     case 'CATEGORY_PLAYLISTS':
       return { ...state, categories: payload.categories, playlists: payload.playlists };
+      
     default:
       return state;
   }
