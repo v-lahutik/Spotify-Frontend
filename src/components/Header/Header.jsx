@@ -25,7 +25,7 @@ export const Header = () => {
         <Button $white="true">All</Button>
         <Button $grey="true">Music</Button>
         <Button $grey="true">Podcasts</Button>
-        <Button $grey="true">Music</Button>
+        
       </BottomDiv>
   </HeaderContainer>
 </>
